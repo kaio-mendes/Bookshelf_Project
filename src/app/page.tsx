@@ -1,8 +1,11 @@
-"use client";
+'use client';
+
+import CurrentReads from '@/modules/CurrentReads';
+
 export default function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      <CurrentReads />
     </div>
   );
 }

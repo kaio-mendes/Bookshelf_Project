@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { Navbar } from "@/modules/Navbar";
-import { Modal } from "@/modules/Modal";
+import type { Metadata } from 'next';
+import './globals.css';
+import { Navbar } from '@/modules/Navbar';
 
 export const metadata: Metadata = {
-  title: "Bookshelf",
-  description: "Organize your readings",
+  title: 'Bookshelf',
+  description: 'Organize your readings',
 };
 
 export default function RootLayout({
@@ -18,7 +17,6 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
-        <Modal />
       </body>
     </html>
   );
