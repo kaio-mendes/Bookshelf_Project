@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/modules/Navbar';
+import { ModalProvider } from '@/context/ModalContex';
+import { Modal } from '@/modules/Modal';
 
 export const metadata: Metadata = {
   title: 'Bookshelf',
@@ -15,8 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
+        <ModalProvider>
+          <Navbar />
+          <Modal />
+          {children}
+        </ModalProvider>
       </body>
     </html>
   );

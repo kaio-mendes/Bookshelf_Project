@@ -3,13 +3,18 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faMagnifyingGlass, faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { Inputs } from '@/components/Inputs';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ModalContext } from '@/context/ModalContex';
 
 export const Navbar = () => {
   const [toogleMenu, setToogleMenu] = useState(false);
   const closeMenu = () => {
     setToogleMenu(prev => !prev);
   };
+  const modalContext = useContext(ModalContext);
+  if (!modalContext) return null;
+  const { showModal, toggleModal } = modalContext;
+
   return (
     <nav className="flex items-center justify-between w-full p-1 ">
       <div className="flex justify-between p-3 items-center text-[#161d40] z-20 w-full h-16 ">
@@ -55,7 +60,7 @@ export const Navbar = () => {
             </li>
           </ul>
         </div>
-        <i className="text-[1.5rem] cursor-pointer w-[10%] hidden md:block">
+        <i className="text-[1.5rem] cursor-pointer  hidden md:block">
           <Link href="/profile">
             <FontAwesomeIcon icon={faUser} />
           </Link>
@@ -73,9 +78,8 @@ export const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="cursor-pointer h-full items-center w-[20%] flex justify-end relative">
-          <Inputs placeholder="search" className="mr-4 w-[250px] sm:w-[300px] md:w-[350px] hidden lg:block" />
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[1.5rem]" />
+        <div className="cursor-pointer h-full items-center flex justify-end relative">
+          <FontAwesomeIcon icon={faMagnifyingGlass} className="text-[1.5rem]" onClick={toggleModal} />
         </div>
       </div>
     </nav>
