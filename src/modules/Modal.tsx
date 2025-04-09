@@ -24,14 +24,26 @@ export const Modal = () => {
     setSearchQuery(url);
   }
 
+  function HandleKey(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  }
+
   return showModal ? (
-    <div className="left-0 right-0 bottom-0 bg-white z-20 absolute top-15 flex justify-start items-center flex-col w-full">
+    <div className="left-0 right-0 bottom-0 bg-white z-10 absolute top-15 flex justify-start items-center flex-col w-full">
       <i className="w-full flex justify-end text-3xl">
         <FontAwesomeIcon icon={faClose} className="cursor-pointer m-4 text-[#161d40]" onClick={toggleModal} />
       </i>
       <h1 className="text-3xl font-bold">Find Books</h1>
       <div className="flex h-16 mt-2">
-        <Inputs placeholder="Search books..." className="h-10 w-[300px] mr-2" onChange={handleChange} value={url} />
+        <Inputs
+          placeholder="Search books..."
+          className="h-10 w-[300px] mr-2"
+          onChange={handleChange}
+          value={url}
+          onKeyDown={HandleKey}
+        />
         <Button text="Search" onClick={handleSearch} />
       </div>
       <SearchBooks url={searchQuery} />

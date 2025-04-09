@@ -26,9 +26,9 @@ export const Navbar = () => {
           <FontAwesomeIcon icon={faBars} />
         </i>
         <div
-          className={`${toogleMenu ? 'absolute z-10 h-full bg-[#f5f5f5] top-0 bottom-0 left-0 w-[15rem] md:hidden shadow-2xl' : 'hidden'}`}
+          className={`${toogleMenu ? 'absolute z-20 h-full bg-[#f5f5f5] top-0 bottom-0 left-0 w-[15rem] md:hidden shadow-2xl' : 'hidden'}`}
         >
-          <ul className="flex flex-col font-bold text-[1.1rem] p-2">
+          <ul className="flex flex-col font-bold text-[1.1rem] p-2  ">
             <li className="w-full flex justify-end">
               <i
                 className="text-[1.5rem] cursor-pointer md:hidden h-full flex items-center text-[#161d40]"
@@ -65,7 +65,7 @@ export const Navbar = () => {
             <FontAwesomeIcon icon={faUser} />
           </Link>
         </i>
-        <div className="flex w-[30%] justify-center hidden md:block">
+        <div className="flex w-[30%] justify-center hidden md:block z-50">
           <ul className="flex font-semibold text-[1.3rem] justify-between w-full">
             <li className="hover:text-[#0C87D9]">
               <Link href="/">Home</Link>
